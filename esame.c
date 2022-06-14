@@ -4,7 +4,7 @@
 #define anno_corrente 2022
 #define giorno_iniziale 5
 
-//definisco una struct formata da 3 interi ed un char per la data con associato il corrispondente giorno della settimana
+//definisco una struct per la data formata da 3 interi ed un char con associato il corrispondente giorno della settimana
 typedef struct
  {
     int giorno;
@@ -24,7 +24,7 @@ void riempimento (data date[], int* n_date)
     int gs;
     //definisco un indice i che mi servira' in seguito
     int i=0;
-    // definisco un array settimana formato da 7 stringhe pgnuna con lughezza massima di 15 caratteri
+    // definisco un array settimana formato da 7 stringhe ognuna con lughezza massima di 15 caratteri
     char settimana [7] [15] = {"lunedi'","martedi'","mercoledi'","giovedi'","venerdi'","sabato","domenica"};
     // definisco un vettore anno normale di 12 interi corrispondenti ai giorni di ogni mese di un anno normale (dove per normale si intende non bisestile)
     int anno_normale [12] = {31,28,31,30,31,30,31,31,30,31,30,31};
@@ -40,20 +40,20 @@ void riempimento (data date[], int* n_date)
             for(int j=0; j<12; j++)
                 anno_generico[j] = anno_bisestile[j]; // l'anno generico ha nella posizione j lo stesso numero dell'array anno bisestile
         }
-        else // tramite questo else dico che se l'anno in esame nell ciclo di for iniziale NON e' divisibile per 4, allora non è bisestile
+        else // tramite questo else dico che se l'anno in esame nel ciclo di for iniziale NON e' divisibile per 4, allora non è bisestile
         {
             for(int j=0; j<12; j++)
                 anno_generico[j] = anno_normale[j]; // all'anno generico vengono assegnati i giorni dei mesi di un anno normale (non bisestile)
         }
     /* con questi cicli di for e le istruzioni condizionali if else, partendo dall'anno 2000
-       sono riuscito a far capire al programma quali anni sono bisestili e quali no sulla base di una semplice
+       sono riuscito a far capire all'esecutore quali anni sono bisestili e quali no sulla base di una semplice
        divisione per 4.
        adesso tramite un meccanismo simile assegno anche i giorni e i mesi */
-       for (m=1; m<=12; m++) // apro questo ciclo di for per assegnare i mesi, inizializzo la variabile m ad 1 poiche' nonn esiste il mese 0
+       for (m=1; m<=12; m++) // apro questo ciclo di for per assegnare i mesi, inizializzo la variabile m ad 1 poiche' non esiste il mese 0
        {
-           for (g=1; g<=anno_generico[m-1]; g++) //questo ciclo è analogo e assegna i giorni, anch'esso inizializzato ad 1 poichè non esiste il giiorno 0
+           for (g=1; g<=anno_generico[m-1]; g++) //questo ciclo è analogo e assegna i giorni, anch'esso inizializzato ad 1 poichè non esiste il giorno 0
            {
-               gs = (i+giorno_iniziale)%7; //calcolo gs come resto di i+giorno iniziale diviso 7
+               gs = (i + giorno_iniziale)%7; //calcolo gs come resto di i+giorno iniziale diviso 7
                //assegno all'array date i corrispondenti interi g m a e la stringa corrispondente al giorno della settimana
                date[i].giorno = g;
                date[i].mese = m;
@@ -71,13 +71,12 @@ void riempimento (data date[], int* n_date)
     //infine assegno al parametro n_date il valore di i+1
     *n_date = i+1;
     }
-
 }
 
 
 void cerca_giorno (data date[], char giorno_cercato [], int n_date)
 {
-    //definisco la variabile data cercata di tipo data e la inizializzo all' 1 gennaio 2000 che era sabato
+    //definisco la variabile data cercata di tipo data e la inizializzo a 1/1/2000 (che era sabato)
     data data_cercata = {1, 1, 2000, "sabato"} ;
     //chiedo all'utente di inserire anno mese e giorno e li assegno ai rispettivi campi nella variabile data_cercata
     printf("INSERISCI IL GIORNO DEL MESE\n");
@@ -87,7 +86,6 @@ void cerca_giorno (data date[], char giorno_cercato [], int n_date)
     printf("INSERISCI L'ANNO\n");
     scanf("%d" , &data_cercata.anno);
     //non c'e bisogno di nessun controllo sulla data in quanto se il giorno selezionato non esiste, per come impostata la funzione riempimento, il programma restituira' non trovato
-
     //infine, per ogni elemento del parametro date, se i primi tre campi corrispondono a quelli del paramettro data cercata, assegno la stringa contenuta nel campo giorno della settimana al parametro giorno cercato
     for (int i=0; i<n_date; i++)
         if(data_cercata.anno==date[i].anno)
@@ -101,5 +99,5 @@ void cerca_giorno (data date[], char giorno_cercato [], int n_date)
                         j++;
                     }
                     giorno_cercato[j]= 0;
-                    }
+                }
 }

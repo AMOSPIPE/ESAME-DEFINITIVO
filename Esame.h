@@ -5,12 +5,14 @@
 #define giorno_iniziale 5
 
 
-typedef struct {
+typedef struct
+{
     int giorno;
     int mese;
     int anno;
     char giorno_della_settimana [15];
-} data;
+}
+data;
 void riempimento (data date[], int* n_date);
 void cerca_giorno (data date[], char giorno_cercato [], int n_date);
 

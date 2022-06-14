@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1655232815 source:c:\users\pasquale\documents\github\esame-definitivo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Esame.h"
+
+1655233218 c:\users\pasquale\documents\github\esame-definitivo\esame.h
+
+1655233707 source:c:\users\pasquale\documents\github\esame-definitivo\esame.c
+	<stdio.h>
+	<stdlib.h>
+

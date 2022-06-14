@@ -9,14 +9,14 @@
 int main()
 {
     //definisco la variabile date come un array di 10000 elementi di tipo data
-    const int n_max= 74000;
+    const int n_max= 10000;
     data date[n_max];
     //definisco la variabile stringa "giorno_cercato" e la inizializzo a "non_trovato"
     char giorno_cercato [15]= "non trovato";
     //definisco un intero n_date
     int n_date=0;
     // faccio stampare un messaggio iniziale cosi che l'utente possa capire a cosa serve il programma
-    printf("QUESTO PROGRAMMA TROVA IL GIORNO DELLA SETTIMANA CORRISPONDENTE AD UNA QUALSIASI DATA A PARTIRE DALL' 1/1/2000\n");
+    printf("QUESTO PROGRAMMA TROVA IL GIORNO DELLA SETTIMANA CORRISPONDENTE AD UNA QUALSIASI DATA A PARTIRE DAL 1/1/2000 FINO AL 31/12/2022\n");
     //richiamo la funzione riempimento
     riempimento(date, &n_date);
     // richiamo la funzione cerca giorno
